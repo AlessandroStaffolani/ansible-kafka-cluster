@@ -1,0 +1,10 @@
+---
+# These tasks install Java 8
+
+- name: "Perform apt update"
+  apt:
+    update_cache: "yes"
+
+- name: "Perform apt install openjdk-8-jdk"
+  apt:
+    name: "openjdk-8-jdk"

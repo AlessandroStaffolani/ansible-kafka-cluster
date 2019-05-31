@@ -1,0 +1,24 @@
+---
+# These tasks install Zookeeper and Kafka
+
+- name: "Create a directory if it does not exist"
+  file:
+    path: "{{ kafka_location }}"
+    state: "directory"
+
+- name: "Download Kafka files into {{ kafka_location }}"
+  get_url:
+    url: "{{ kafka_sources_url }}"
+    dest: "{{ kafka_location }}"
+
+- name: "Extract {{ kafka_package }} into {{ kafka_location }}"
+  unarchive:
+    src: "{{ kafka_location }}/{{ kafka_package }}"
+    dest:  "{{ kafka_location }}"
+    remote_src: "yes"
+    extra_opts: ["--strip-components=1"]
+
+- name: "Remove kafka tar file"
+  file:
+    path: "{{ kafka_location }}/{{ kafka_package }}"
+    state: "absent"

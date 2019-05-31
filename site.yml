@@ -1,0 +1,8 @@
+---
+
+- name: "Install a Kafka cluster"
+  hosts: "kafka"
+  remote_user: "root"
+  roles:
+    - "java"
+    - "kafka"

@@ -1,0 +1,26 @@
+---
+# These tasks configs Zookeeper and Kafka
+
+- name: "Config zookeeper.properties file"
+  template:
+    src: "zookeeper.properties.j2"
+    dest: "{{ kafka_location }}/config/zookeeper.properties"
+
+- name: "Create /tmp/zookeeper directory if it does not exist"
+  file:
+    path: "/tmp/zookeeper"
+    state: "directory"
+
+- name: "Create the myid file for zookeeper server"
+  file:
+    path: "/tmp/zookeeper/myid"
+    state: "touch"
+
+- name: "Write server id on myid file"
+  shell: "echo '{{ groups['kafka'].index(inventory_hostname) }}' >> /tmp/zookeeper/myid"
+
+
+- name: "Config kafka.properties file"
+  template:
+    src: "server.properties.j2"
+    dest: "{{ kafka_location }}/config/server.properties"
