@@ -92,6 +92,12 @@ transaction.state.log.min.isr=1
 # The maximum amount of time a message can sit in a log before we force a flush
 #log.flush.interval.ms=1000
 
+############################# Log Roll Policy #############################
+# This setting controls the period of time after which Kafka will force the log to roll,
+# even if the segment file is not full. This ensures that the retention process is able to delete or compact old data.
+
+log.roll.ms=60000
+
 ############################# Log Retention Policy #############################
 
 # The following configurations control the disposal of log segments. The policy can
