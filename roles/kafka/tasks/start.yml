@@ -2,7 +2,7 @@
 # These tasks start Zookeeper and Kafka
 
 - name: "Start zookeeper"
-  command: "{{ kafka_location }}/bin/zookeeper-server-start.sh {{ kafka_location }}config/zookeeper.properties"
+  shell: "{{ kafka_location }}/bin/zookeeper-server-start.sh -daemon {{ kafka_location }}/config/zookeeper.properties"
 
 - name: "Start kafka"
-  command: "{{ kafka_location }}/bin/kafka-server-start.sh {{ kafka_location }}config/server.properties"
+  shell: "{{ kafka_location }}/bin/kafka-server-start.sh -daemon {{ kafka_location }}/config/server.properties"

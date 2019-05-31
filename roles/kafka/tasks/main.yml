@@ -3,3 +3,7 @@
 - include: "install.yml"
 - include: "config.yml"
 - include: "start.yml"
+
+# Danger zone
+#- include: "stop.yml"
+#- include: "clean.yml"

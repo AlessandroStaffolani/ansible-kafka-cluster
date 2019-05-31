@@ -1,0 +1,8 @@
+---
+# These tasks stops Zookeeper and Kafka
+
+- name: "Stop kafka"
+  shell: "{{ kafka_location }}/bin/kafka-server-stop.sh"
+
+- name: "Stop zookeeper"
+  shell: "{{ kafka_location }}/bin/zookeeper-server-stop.sh"

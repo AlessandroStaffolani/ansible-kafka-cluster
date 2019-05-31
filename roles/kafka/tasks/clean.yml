@@ -1,0 +1,7 @@
+---
+# These tasks clean the kafka folder
+
+- name: "Remove {{ kafka_location }}"
+  file:
+    path: "{{ kafka_location }}"
+    state: "absent"
