@@ -96,7 +96,7 @@ transaction.state.log.min.isr=1
 # This setting controls the period of time after which Kafka will force the log to roll,
 # even if the segment file is not full. This ensures that the retention process is able to delete or compact old data.
 
-log.roll.ms={{ kafka_log_roll_ms }}
+# log.roll.ms={{ kafka_log_roll_ms }}
 
 ############################# Log Retention Policy #############################
 
@@ -106,13 +106,13 @@ log.roll.ms={{ kafka_log_roll_ms }}
 # from the end of the log.
 
 # The minimum age of a log file to be eligible for deletion due to age
-# log.retention.hours=168
+log.retention.hours=168
 
-log.retention.minutes={{ kafka_log_retention_minutes }}
+# log.retention.minutes={{ kafka_log_retention_minutes }}
 
 # A size-based retention policy for logs. Segments are pruned from the log unless the remaining
 # segments drop below log.retention.bytes. Functions independently of log.retention.hours.
-#log.retention.bytes=1073741824
+log.retention.bytes=1073741824
 
 # The maximum size of a log segment file. When this size is reached a new log segment will be created.
 log.segment.bytes=1073741824

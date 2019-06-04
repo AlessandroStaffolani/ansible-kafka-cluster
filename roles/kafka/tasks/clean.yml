@@ -5,3 +5,13 @@
   file:
     path: "{{ kafka_location }}"
     state: "absent"
+
+#- name: "Remove kafka message log"
+#  file:
+#    path: "/tmp/kafka-log"
+#    state: "absent"
+#
+#- name: "Remove zookeeper myid folder"
+#  file:
+#    path: "/tmp/zookeeper/myid"
+#    state: "absent"
