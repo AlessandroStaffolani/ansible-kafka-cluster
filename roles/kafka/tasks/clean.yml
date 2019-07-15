@@ -6,6 +6,16 @@
     path: "{{ kafka_location }}"
     state: "absent"
 
+- name: "Remove zookeeper service file"
+  file:
+    path: "/etc/systemd/system/zookeeper.service"
+    state: "absent"
+
+- name: "Remove kafka service file"
+  file:
+    path: "/etc/systemd/system/kafka.service"
+    state: "absent"
+
 #- name: "Remove kafka message log"
 #  file:
 #    path: "/tmp/kafka-log"

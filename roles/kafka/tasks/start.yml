@@ -1,8 +1,14 @@
 ---
 # These tasks start Zookeeper and Kafka
 
-- name: "Start zookeeper"
-  shell: "{{ kafka_location }}/bin/zookeeper-server-start.sh -daemon {{ kafka_location }}/config/zookeeper.properties"
+- name: "Start zookeeper service"
+  shell: "systemctl start zookeeper.service"
 
-- name: "Start kafka"
-  shell: "{{ kafka_location }}/bin/kafka-server-start.sh -daemon {{ kafka_location }}/config/server.properties"
+- name: "Start kafka service"
+  shell: "systemctl start kafka.service"
+
+#- name: "Start zookeeper"
+#  shell: "{{ kafka_location }}/bin/zookeeper-server-start.sh -daemon {{ kafka_location }}/config/zookeeper.properties"
+#
+#- name: "Start kafka"
+#  shell: "{{ kafka_location }}/bin/kafka-server-start.sh -daemon {{ kafka_location }}/config/server.properties"

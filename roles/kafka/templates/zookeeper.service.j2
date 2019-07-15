@@ -1,0 +1,14 @@
+[Unit]
+Description=Zookeeper Daemon
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+User=root
+ExecStart={{ kafka_location }}/bin/zookeeper-server-start.sh {{ kafka_location }}/config/zookeeper.properties
+ExecStop={{ kafka_location }}/bin/zookeeper-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target

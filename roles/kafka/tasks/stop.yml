@@ -1,8 +1,14 @@
 ---
 # These tasks stops Zookeeper and Kafka
 
-- name: "Stop kafka"
-  shell: "{{ kafka_location }}/bin/kafka-server-stop.sh"
+- name: "Stop zookeeper service"
+  shell: "systemctl stop zookeeper.service"
 
-- name: "Stop zookeeper"
-  shell: "{{ kafka_location }}/bin/zookeeper-server-stop.sh"
+- name: "Stop kafka service"
+  shell: "systemctl stop kafka.service"
+
+#- name: "Stop kafka"
+#  shell: "{{ kafka_location }}/bin/kafka-server-stop.sh"
+#
+#- name: "Stop zookeeper"
+#  shell: "{{ kafka_location }}/bin/zookeeper-server-stop.sh"

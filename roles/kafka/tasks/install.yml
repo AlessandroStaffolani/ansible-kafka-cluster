@@ -22,3 +22,20 @@
   file:
     path: "{{ kafka_location }}/{{ kafka_package }}"
     state: "absent"
+
+- name: "Add zookeeper service file"
+  template:
+    src: "zookeeper.service.j2"
+    dest: "/etc/systemd/system/zookeeper.service"
+
+- name: "Add kafka service file"
+  template:
+    src: "kafka.service.j2"
+    dest: "/etc/systemd/system/kafka.service"
+
+- name: "Enable zookeeper service"
+  shell: "systemctl enable zookeeper.service"
+
+- name: "Enable kafka service"
+  shell: "systemctl enable kafka.service"
+

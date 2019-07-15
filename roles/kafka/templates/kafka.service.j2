@@ -1,0 +1,14 @@
+[Unit]
+Description=Kafka Daemon
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/sh -c '{{ kafka_location }}/bin/kafka-server-start.sh {{ kafka_location }}/config/server.properties > {{ kafka_location }}/kafka.log 2>&1'
+ExecStop={{ kafka_location }}/bin/kafka-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
